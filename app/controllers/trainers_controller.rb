@@ -4,6 +4,8 @@ class TrainersController < ApplicationController
   end
 
   def show
-    render json: Trainer.find(params[:id])
+    trainer = Trainer.find_by(name: params[:name])
+    render json: trainer.serializeTrainer
   end
+
 end
